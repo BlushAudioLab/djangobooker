@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    {% for event in events %}
+    <h1>{{ event.title }}</h1>
+    <p>By {{event.owner}} on {{event.timebooked}} </p>
+    {% endfor %}
+</body>
+</html>

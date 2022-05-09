@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     {% for event in events %}
-    <h1>{{ event.title }}</h1>
-    <p>By {{event.owner}} on {{event.timebooked}} </p>
+        <h1>{{ event.title }}</h1>
+        <p>By {{event.owner}} on {{event.timebooked}} </p>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

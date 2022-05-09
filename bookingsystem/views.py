@@ -12,6 +12,16 @@ events = [
         'title': 'Big Drum Time',
         'owner': 'Greg the Man',
         'timebooked': '5th May, 2022',
+    },
+    {
+        'title': 'Eggy Rhythms',
+        'owner': 'David Featherstone',
+        'timebooked': '9th May, 2022',
+    },
+    {
+        'title': 'A Small Guitar',
+        'owner': 'Emily Grifflin',
+        'timebooked': '9th May, 2022',
     }
 ]
 
@@ -24,4 +34,4 @@ def home(request):
 
 
 def about(request):
-    return render (request,'about.html', {'name': 'Emily'})
+    return render (request,'about.html', {'title': 'About'})

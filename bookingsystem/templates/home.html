@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
     {% for event in events %}
-        <h1>{{ event.title }}</h1>
-        <p>By {{event.owner}} on {{event.timebooked}} </p>
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ event.owner }}</a>
+                    <small class="text-muted">{{ event.timebooked }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ event.title }}</a></h2>
+            </div>
+        </article>
     {% endfor %}
 {% endblock content %}

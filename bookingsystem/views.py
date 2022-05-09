@@ -1,34 +1,10 @@
 from django.shortcuts import render
-from django.shortcuts import render
-from django.http import HttpResponse
-
-events = [
-    {
-        'title': 'Mixing Session 2',
-        'owner': 'Baloo',
-        'timebooked': '2nd April, 1987',
-    },
-    {
-        'title': 'Big Drum Time',
-        'owner': 'Greg the Man',
-        'timebooked': '5th May, 2022',
-    },
-    {
-        'title': 'Eggy Rhythms',
-        'owner': 'David Featherstone',
-        'timebooked': '9th May, 2022',
-    },
-    {
-        'title': 'A Small Guitar',
-        'owner': 'Emily Grifflin',
-        'timebooked': '9th May, 2022',
-    }
-]
+from .models import Event
 
 
 def home(request):
     context = {
-        'events': events
+        'events': Event.objects.all()
     }
     return render (request,'home.html', context)
 

@@ -5,7 +5,7 @@
             <div class="media-body">
                 <div class="article-metadata">
                     <a class="mr-2" href="#">{{ event.owner }}</a>
-                    <small class="text-muted">{{ event.timebooked }}</small>
+                    <small class="text-muted">{{ event.timebooked|date:"d/m/y - H:i e" }}</small>
                 </div>
                 <h2><a class="article-title" href="#">{{ event.title }}</a></h2>
             </div>

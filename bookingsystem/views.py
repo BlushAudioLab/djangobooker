@@ -20,9 +20,6 @@ class EventListView(ListView):
     ordering = ['-timebooked']
 
 
-
-
-
 @login_required
 def book(request):
     return render (request,'bookroom.html', {'title': 'Book a Room'})

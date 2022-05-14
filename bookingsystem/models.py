@@ -1,3 +1,4 @@
+from email.headerregistry import Group
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,3 +12,14 @@ class Event(models.Model):
     
     def __str__(self):
         return self.title
+    
+
+class Room(models.Model):
+    name = models.CharField(max_length=20)
+    # update this one later
+    type = models.CharField(max_length=20)
+    capacity = models.CharField(max_length=2)
+    description = models.CharField(max_length=500, null=True)
+    # not sure about this bit
+    def __str__(self):
+        return self.name

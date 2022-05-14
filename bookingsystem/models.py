@@ -23,8 +23,8 @@ class Event(models.Model):
 
 class Room(models.Model):
     name = models.CharField(max_length=20)
-    category = models.ForeignKey(
-        'Category', 
+    type = models.ForeignKey(
+        'Type', 
         null=True, 
         on_delete=models.CASCADE
     )
@@ -35,11 +35,13 @@ class Room(models.Model):
         return self.name
     
 
-class Category(models.Model):
-    category = models.CharField(
+class Type(models.Model):
+    type = models.CharField(
         max_length=100,
         null=False,
         default='',
     )
     def __str__(self):
-        return self.category
+        return self.type
+    
+    

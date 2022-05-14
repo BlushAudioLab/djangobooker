@@ -1,13 +1,26 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+
+import bookingsystem
 from .models import Event
 from django.contrib.auth.decorators import login_required
 
-@login_required
+
 def home(request):
     context = {
         'events': Event.objects.all()
     }
     return render (request,'home.html', context)
+
+
+class EventListView(ListView):
+    model = Event
+    template_name = 'home.html' # <app>/<model>_<viewtype>.html
+    context_object_name = 'events'
+    ordering = ['-timebooked']
+
+
+
 
 
 @login_required

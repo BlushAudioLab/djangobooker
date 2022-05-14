@@ -31,8 +31,8 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
                         {% if user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{% url 'bookingsystem-home' %}">Home</a>
-                            <a class="nav-item nav-link" href="{% url 'bookingsystem-about' %}">About</a>
+                            <a class="nav-item nav-link" href="{% url 'bookingsystem-bookroom' %}">Book a Room</a>
+                            <a class="nav-item nav-link" href="{% url 'bookingsystem-reservation' %}">Reserve Equipment</a>
                         {% endif %}
                     </div>
                     <!-- Navbar Right Side -->

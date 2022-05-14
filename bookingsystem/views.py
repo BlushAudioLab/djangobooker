@@ -11,5 +11,10 @@ def home(request):
 
 
 @login_required
-def about(request):
-    return render (request,'about.html', {'title': 'About'})
+def book(request):
+    return render (request,'bookroom.html', {'title': 'Book a Room'})
+
+
+@login_required
+def reserve(request):
+    return render (request,'reservation.html', {'title': 'Reserve Equipment'})

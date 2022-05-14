@@ -1,8 +1,10 @@
 from django.contrib import admin
 from .models import Type, Event, Room
 
-admin.site.register(Event)
-admin.site.register(Type)
+
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title','room','owner','timebooked')
+admin.site.register(Event, EventAdmin)
 
 
 class RoomAdmin(admin.ModelAdmin):
@@ -10,3 +12,4 @@ class RoomAdmin(admin.ModelAdmin):
 admin.site.register(Room, RoomAdmin)
 
 
+admin.site.register(Type)

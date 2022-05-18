@@ -47,3 +47,17 @@ class Type(models.Model):
         return self.type
     
     
+class Item(models.Model):
+    class Type(models.TextChoices):
+        microphone = '1', "Microphone"
+        dibox = '2', "DI Box"
+    
+    name = models.CharField(max_length=40)
+    barcode = models.IntegerField(default=800000)
+    description = models.CharField(max_length=200)
+    type = models.CharField(
+        max_length=2,
+        choices=Type.choices,
+        default=Type.microphone
+    )
+    

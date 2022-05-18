@@ -6,8 +6,6 @@ from django.views.generic import (
     UpdateView, 
     DeleteView
 )
-
-
 import bookingsystem
 from .models import Event
 from django.contrib.auth.decorators import login_required
@@ -39,6 +37,10 @@ class EventCreateView(CreateView):
         'starttime',
         'endtime'
     ]
+    
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
     
 
 @login_required

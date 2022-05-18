@@ -8,9 +8,9 @@
                 <small class="text-muted">{{ object.timebooked|date:"d/m/y - H:i e" }}</small>
             </div>
             <h2 class="article-title"> {{ object.title }}</h2>
-            <h2 class="article-title"> {{ object.room }}</h2>
-            <h2 class="article-title"> {{ object.starttime }}</h2>
-            <h2 class="article-title"> {{ object.endtime }}</h2>
+            <h2 class="article-title"> Room: {{ object.room }}</h2>
+            <h2 class="article-title"> Start Time: {{ object.starttime }}</h2>
+            <h2 class="article-title"> End Time: {{ object.endtime }}</h2>
         </div>
     </article>
 {% endblock content %}

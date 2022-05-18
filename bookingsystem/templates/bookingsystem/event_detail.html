@@ -10,7 +10,13 @@
             <h2 class="article-title"> {{ object.title }}</h2>
             <h2 class="article-title"> Room: {{ object.room }}</h2>
             <h2 class="article-title"> Start Time: {{ object.starttime }}</h2>
-            <h2 class="article-title"> End Time: {{ object.endtime }}</h2>
+            <h2 class="article-title"> End Time: {{ object.endtime }}</h2>            
+                {% if object.owner == user %}
+                    <div>
+                        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'event-update' object.id %}">Update</a>
+                        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' object.id %}">Delete</a>
+                    </div>
+                {% endif %}         
         </div>
     </article>
 {% endblock content %}

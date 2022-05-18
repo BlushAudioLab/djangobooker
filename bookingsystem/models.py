@@ -26,7 +26,7 @@ class Event(models.Model):
 class Room(models.Model):
     name = models.CharField(max_length=20)
     type = models.ForeignKey(
-        'Type', 
+        'RoomType', 
         null=True, 
         on_delete=models.CASCADE
     )
@@ -37,7 +37,36 @@ class Room(models.Model):
         return self.name
     
 
-class Type(models.Model):
+class RoomType(models.Model):
+    type = models.CharField(
+        max_length=100,
+        null=False,
+        default='',
+    )
+    def __str__(self):
+        return self.type
+    
+
+class Item(models.Model):
+    name = models.CharField(max_length=20)
+    barcode = models.CharField(max_length=6)
+    description = models.CharField(max_length=500, null=True, blank=True)
+    type = models.ForeignKey(
+        'ItemType', 
+        null=True, 
+        on_delete=models.CASCADE
+    )
+    area = models.ForeignKey(
+        'ItemArea',
+        null=True,
+        on_delete=models.CASCADE
+    )
+    
+    def __str__(self):
+        return self.name
+    
+
+class ItemType(models.Model):
     type = models.CharField(
         max_length=100,
         null=False,
@@ -47,17 +76,12 @@ class Type(models.Model):
         return self.type
     
     
-class Item(models.Model):
-    class Type(models.TextChoices):
-        microphone = '1', "Microphone"
-        dibox = '2', "DI Box"
-    
-    name = models.CharField(max_length=40)
-    barcode = models.IntegerField(default=800000)
-    description = models.CharField(max_length=200)
-    type = models.CharField(
-        max_length=2,
-        choices=Type.choices,
-        default=Type.microphone
+class ItemArea(models.Model):
+    area = models.CharField(
+        max_length=20,
+        null=False,
+        default='',
     )
+    def __str__(self):
+        return self.area    
     

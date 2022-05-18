@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Item, Type, Event, Room
+from .models import Item, ItemType, ItemArea, RoomType, Event, Room
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -11,8 +11,11 @@ class RoomAdmin(admin.ModelAdmin):
     list_display = ('name','type','capacity','description')
 admin.site.register(Room, RoomAdmin)
 
+
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('name','barcode','description','type')
+    list_display = ('name','barcode','description','type', 'area')
 admin.site.register(Item, ItemAdmin)
 
-admin.site.register(Type)
+admin.site.register(RoomType)
+admin.site.register(ItemType)
+admin.site.register(ItemArea)

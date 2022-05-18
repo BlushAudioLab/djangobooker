@@ -22,25 +22,6 @@ class Event(models.Model):
     def get_absolute_url(self):
         return reverse('event-detail', kwargs={'pk': self.pk})
     
-    
-class Reservation(models.Model):
-    title = models.CharField(max_length=100, null=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    timebooked = models.DateTimeField(auto_now_add=True)
-    items = models.ForeignKey(
-        'Item', 
-        on_delete=models.CASCADE
-    )
-    collectiontime = models.DateTimeField(null=True, blank=True)
-    returntime = models.DateTimeField(null=True, blank=True)
-    
-    def __str__(self):
-        return self.title
-    
-    def get_absolute_url(self):
-        return reverse('reservation-detail', kwargs={'pk': self.pk})
-    
-    
 
 class Room(models.Model):
     name = models.CharField(max_length=20)
@@ -102,5 +83,21 @@ class ItemArea(models.Model):
         default='',
     )
     def __str__(self):
-        return self.area    
+        return self.area   
+    
+    
+class Reservation(models.Model):
+    title = models.CharField(max_length=100, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    timebooked = models.DateTimeField(auto_now_add=True)
+    items = models.ManyToManyField(Item)
+    collectiontime = models.DateTimeField(null=True, blank=True)
+    returntime = models.DateTimeField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.title
+    
+    def get_absolute_url(self):
+        return reverse('reservation-detail', kwargs={'pk': self.pk})
+     
     

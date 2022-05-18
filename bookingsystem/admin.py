@@ -7,9 +7,7 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 
 
-class ReservationAdmin(admin.ModelAdmin):
-    list_display = ('owner','timebooked','items','collectiontime','returntime')
-admin.site.register(Reservation, ReservationAdmin)
+admin.site.register(Reservation)
 
 
 class RoomAdmin(admin.ModelAdmin):

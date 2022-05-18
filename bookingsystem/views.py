@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+
 
 import bookingsystem
 from .models import Event
@@ -19,6 +20,10 @@ class EventListView(ListView):
     context_object_name = 'events'
     ordering = ['-timebooked']
 
+
+class EventDetailView(DetailView):
+    model = Event
+    
 
 @login_required
 def book(request):

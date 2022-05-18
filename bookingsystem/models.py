@@ -13,8 +13,8 @@ class Event(models.Model):
         null=True, 
         on_delete=models.CASCADE
     )
-    # starttime = models.DateTimeField()
-    # endtime = models.DateTimeField()
+    starttime = models.DateTimeField(null=True, blank=True)
+    endtime = models.DateTimeField(null=True, blank=True)
     
     def __str__(self):
         return self.title

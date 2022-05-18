@@ -8,8 +8,7 @@
                     <a class="mr-2" href='#'>{{ event.owner }}</a>
                     <small class="text-muted">{{ event.timebooked|date:"d/m/y - H:i e" }}</small>
                 </div>
-                <h2><a class="article-title" href="#">{{ event.title }}</a></h2>
-                <p><a class="article-title" href="#">{{ event.room }}</a></p>
+                <h2><a class="article-title" href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h2>
             </div>
         </article>
     {% endfor %}

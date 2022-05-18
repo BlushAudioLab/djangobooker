@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView, 
+    DetailView, 
+    CreateView, 
+    UpdateView, 
+    DeleteView
+)
 
 
 import bookingsystem
@@ -23,6 +29,16 @@ class EventListView(ListView):
 
 class EventDetailView(DetailView):
     model = Event
+    
+    
+class EventCreateView(CreateView):
+    model = Event
+    fields = [
+        'title',
+        'room',
+        'starttime',
+        'endtime'
+    ]
     
 
 @login_required
